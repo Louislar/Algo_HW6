@@ -47,10 +47,13 @@ int dTraversal(chainNode* graph[], int cur, int visited[], int nodeLatency[]
         {
             tempCost+=nodeLatency[path[i]];
             tempCost+=edges.a[path[i]][path[i+1]];
+            cout<<path[i]<<" ";
         }
+        cout<<path[pathLength]<<" "<<cur<<" ";
         tempCost+=nodeLatency[path[pathLength]];
         tempCost+=edges.a[path[pathLength]][cur];
         tempCost+=nodeLatency[cur];
+        cout<<cost<<endl;
         if(tempCost<cost) cost=tempCost;
         return 0;
     }
@@ -58,7 +61,7 @@ int dTraversal(chainNode* graph[], int cur, int visited[], int nodeLatency[]
     chainNode* temp=graph[cur];
     while(temp!=0)
     {
-        if(visited[temp->data]==0){
+        if(visited[temp->data]==0&&temp->data!=0){
         visited[temp->data]=1;
         path[pathLength]=cur;
         pathLength++;
