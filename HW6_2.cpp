@@ -28,16 +28,13 @@ int main()
 
         //5*5
         bags+=input[4];
-        while(input[0]>0&&input[4]>0)
         {
-            int temp=input[0]/11;
-            if(input[0]-temp>0)
+            int temp=input[4]*11;
+            if(input[0]-temp>=0)
             {
                 input[0]-=temp;
-                input[4]--;
             }
         }
-        if(input[0]>0&&input[4]>0) input[0]=0;
         input[4]=0;
 
         //4*4
