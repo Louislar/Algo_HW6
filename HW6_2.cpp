@@ -39,7 +39,7 @@ int main()
 
         //4*4
         bags+=input[3];
-        while(input[1]>0 && input[3]>0)
+        while(input[1]>=0 && input[3]>0)
         {
             int temp=input[1]/6;
             if(input[1]-temp>0)
