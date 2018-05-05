@@ -30,37 +30,129 @@ int main()
         bags+=input[4];
         {
             int temp=input[4]*11;
-            if(input[0]-temp>=0)
+            while(input[0]-1>0&&temp>0)
             {
-                input[0]-=temp;
+                input[0]--;
+                temp--;
             }
         }
         input[4]=0;
 
         //4*4
         bags+=input[3];
-        while(input[1]>=0 && input[3]>0)
         {
-            int temp=input[1]/6;
-            if(input[1]-temp>0)
+            int temp=input[3]*5; // how many 2*2 empty block can fill in
+            while(input[1]>0 && temp>0)
             {
-                input[1]-=temp;
-                input[3]--;
+                input[1]--;
+                temp--;
+            }
+
+            temp=temp*4; // how many 1*1 empty block can fill in
+            while(input[0]>0 && temp>0)
+            {
+                input[0]--;
+                temp--;
             }
         }
-        {
-            int left=6-input[1];
-            left*=4;
-            left+=input[3]*20;
-            input[0]-=left;
-            if(input[0]<0) input[0]==0;
-        }
+
 
         //3*3
-        /************start from here*************/
+        if(input[2]/4>0)
+        {
+            bags+=input[2]/4;
+            input[2]-=(input[2]/4)*4;
+        }
+        if(input[2]==1)
+        {
+            bags++;
+            int left=5;
+            while(input[1]-1>=0 && left>0)
+            {
+                input[1]--;
+                left--;
+            }
+
+            left=left*4+7;
+            while(input[0]-1>=0 && left>0)
+            {
+                input[0]--;
+                left--;
+            }
+        }
+        else if(input[2]==2)
+        {
+            bags++;
+            int left=3;
+            while(input[1]-1>=0 && left>0)
+            {
+                input[1]--;
+                left--;
+            }
+
+            left=left*4+6;
+            while(input[0]-1>=0 && left>0)
+            {
+                input[0]--;
+                left--;
+            }
+        }
+        else if(input[2]==3)
+        {
+            bags++;
+            int left=1;
+            while(input[1]-1>=0 && left>0)
+            {
+                input[1]--;
+                left--;
+            }
+
+            left=left*4+5;
+            while(input[0]-1>=0 && left>0)
+            {
+                input[0]--;
+                left--;
+            }
+        }
+
+        //2*2
+        if(input[1]/9>0)
+        {
+            bags+=input[1]/9;
+            input[1]-=(input[1]/9)*9;
+        }
+        {
+            int left=36-input[1]*4;
+            while(input[0]>0 && left>0)
+            {
+                input[0]--;
+                left--;
+            }
+        }
+
+        //1*1
+        if(input[0]/36>0)
+        {
+            bags+=input[0]/36;
+            input[0]-=(input[0]/36)*36;
+        }
+        if(input[0]>0)
+            bags++;
+
+        cout<<bags<<endl;
 
 
 
 
-    }
+
+
+
+
+
+
+
+
+
+
+    }// while end
 }
